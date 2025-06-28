@@ -35,6 +35,7 @@ def get_key(timeout: float = 0.1) -> str:
     if key == "\x1b":
         key += sys.stdin.read(2)
 
+    termios.tcflush(sys.stdin, termios.TCIOFLUSH)
     return key
 
 
